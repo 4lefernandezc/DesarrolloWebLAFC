@@ -1,0 +1,25 @@
+.container {
+    display: flex;  
+}
+
+p {
+    font-family: cursive;
+    border: 2px solid ;
+    margin: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.green{
+    color: green;
+}
