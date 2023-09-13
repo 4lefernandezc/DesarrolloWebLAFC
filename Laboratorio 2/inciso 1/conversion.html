@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversiones</title>
+</head>
+<body>
+    <h1>Conversion de unidades</h1>
+
+    <form action="conversion.php" method="get">
+        <input type="text" name="entrada" id="entrada">
+        <label for="uniEntrada">Unidad de entrada</label>
+        <select name="uniEntrada" id="uniEntrada">
+            <option value="1">Milimetro</option>
+            <option value="2">Centimetro</option>
+            <option value="3">Decimetro</option>
+            <option value="4">Metro</option>
+            <option value="5">Kilometro</option>
+        </select>
+        <br>
+        <label for="uniSalida">Unidad a convertir</label>
+        <select name="uniSalida" id="uniSalida">
+            <option value="1">Milimetro</option>
+            <option value="2">Centimetro</option>
+            <option value="3">Decimetro</option>
+            <option value="4">Metro</option>
+            <option value="5">Kilometro</option>
+        </select>
+        <br>
+        <input type="submit" value="Convertir">
+    </form>
+
+</body>
+</html>

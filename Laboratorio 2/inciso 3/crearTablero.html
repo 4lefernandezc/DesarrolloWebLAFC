@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Tablero</title>
+</head>
+<body>
+    
+    <h1>Parametros</h1>
+
+    <form action="tablero.php" method="post">
+        <label for="filas">Filas</label>
+        <input type="number" name="filas" id="filas" min="1" max="10" required>
+        <br>
+        <label for="columnas">Columnas</label>
+        <input type="number" name="columnas" id="columnas" min="1" max="10" required>
+        <br>
+        <label for="color1">Color 1</label>
+        <input type="color" name="color1" id="color1" required>
+        <br>
+        <label for="color2">Color 2</label>
+        <input type="color" name="color2" id="color2" required>
+        <br>
+        <input type="submit" value="Crear Tablero">
+
+</body>
+</html>
