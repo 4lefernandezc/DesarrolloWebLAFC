@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    
+    <h1>Palindromo</h1>
+
+
+    <script>
+        
+        var palabra = prompt("Ingrese una cadena de texto");
+
+        function esPalindromo(palabra) {
+            
+            let auxpalabra = palabra.toLowerCase().replace(/ /g, "");
+
+            let palabraInvertida = auxpalabra.split("").reverse().join("");
+
+            if(auxpalabra == palabraInvertida){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        esPalindromo(palabra) ? document.write(palabra.toUpperCase() + ": Es palindromo") : document.write(palabra.toUpperCase() + ": No es palindromo");
+
+        document.write("<br/><br/><button onclick='location.reload()'>Regresar</button>");
+        
+    </script>
+
+</body>
+</html>

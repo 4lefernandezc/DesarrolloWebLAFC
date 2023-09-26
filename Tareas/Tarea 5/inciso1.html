@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inciso 1 - Mayor y menor</title>
+</head>
+<body>
+    
+    <h1>Mayor y menor de tres números</h1>
+
+    <script>
+        // El mayor y menor de tres numeros
+        var a = parseInt(prompt("Ingrese el primer número"));
+        var b = parseInt(prompt("Ingrese el segundo número"));
+        var c = parseInt(prompt("Ingrese el tercer número"));
+
+        if (a > b && a > c) {
+            document.write("El número mayor es: " + a);
+        } else if (b > a && b > c) {
+            document.write("El número mayor es: " + b);
+        } else if (c > a && c > b) {
+            document.write("El número mayor es: " + c);
+        } else {
+            document.write("Los números son iguales");
+        }
+
+        if (a < b && a < c) {
+            document.write("<br>El número menor es: " + a);
+        } else if (b < a && b < c) {
+            document.write("<br>El número menor es: " + b);
+        } else if (c < a && c < b) {
+            document.write("<br>El número menor es: " + c);
+        } else {
+            document.write("<br>Los números son iguales");
+        }
+
+
+    </script>
+</body>
+</html>

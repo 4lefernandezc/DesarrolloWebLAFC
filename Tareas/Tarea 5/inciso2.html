@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inciso 2 - Factorial</title>
+</head>
+<body>
+    
+    <h1>Factorial de un número</h1>
+
+    <script>
+
+        // Factorial de un número
+        var numero = parseInt(prompt("Ingrese un número"));
+
+        var factorial = 1;
+
+        for (var i = 1; i <= numero; i++) {
+            factorial = factorial * i;
+        }
+
+        document.write("El factorial de " + numero + " es: " + factorial);
+
+    </script>
+
+</body>
+</html>
