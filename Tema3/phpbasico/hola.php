@@ -8,11 +8,11 @@
 <body>
 
 <?php
-    echo "Hola bebecita ppprrrrr"."<br>";
 
     for ($i=0; $i < 11; $i++) { 
         echo $i."<br>";
     }
+
 ?>
 
 </body>
