@@ -12,6 +12,7 @@ class cadena{
     function cruzar ($cad1, $cad2) {
         $cad1 = str_split($cad1);
         $cad2 = str_split($cad2);
+        $encontra = false;
         $indexX = 0;
         $indexY = 0;
         
@@ -21,6 +22,8 @@ class cadena{
                 if ($cad1[$i] == $cad2[$j]) {
                     $indexX = $i;
                     $indexY = $j;
+                    $encontrada = true;
+                    break 2; // Salimos de ambos bucles
                 }
             }
         }
