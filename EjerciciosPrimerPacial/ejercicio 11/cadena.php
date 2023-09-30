@@ -1,6 +1,5 @@
 <?php 
 class cadena{
-
     public $palabra1 = '';
     public $palabra2 = '';
 
@@ -12,11 +11,10 @@ class cadena{
     function cruzar ($cad1, $cad2) {
         $cad1 = str_split($cad1);
         $cad2 = str_split($cad2);
-        $encontra = false;
+        $encontrada = false;
         $indexX = 0;
         $indexY = 0;
-        
-        
+
         for ($i=0; $i < count($cad1); $i++) { 
             for ($j=0; $j < count($cad2); $j++) { 
                 if ($cad1[$i] == $cad2[$j]) {
@@ -28,15 +26,20 @@ class cadena{
             }
         }
 
+        if (!$encontrada) {
+            echo "No existen letras comunes.";
+            return;
+        }
+
         echo "<table border='1' style='border-collapse: collapse;'>";
         for ($i=0; $i < count($cad1); $i++){
             echo "<tr>";
             for ($j=0; $j < count($cad2); $j++){
-                if ($i == $indexY && $j == $indexX) {
+                if ($i == $indexX && $j == $indexY) {
                     echo "<td style='background-color: green;'>" . $cad2[$j] . "</td>";
-                }else if ($i == $indexY) {
+                }else if ($i == $indexX) {
                     echo "<td style='background-color: red;'>" . $cad2[$j] . "</td>";
-                }else if ($j == $indexX) {
+                }else if ($j == $indexY) {
                     echo "<td style='background-color: red;'>" . $cad1[$i] . "</td>";
                 }else{
                     echo "<td>" . " " . "</td>";
@@ -53,3 +56,4 @@ $cadena = new cadena();
 $cadena->cruzar($cadena->palabra1, $cadena->palabra2);
 
 ?>
+
