@@ -1,13 +1,12 @@
 <?php 
-
 class cadena{
 
     public $palabra1 = '';
     public $palabra2 = '';
 
     public function __construct(){
-        $palabra1 = $_GET['cadena1'];
-        $palabra2 = $_GET['cadena2'];
+        $this->palabra1 = $_GET['cadena1'];
+        $this->palabra2 = $_GET['cadena2'];
     }
 
     function cruzar ($cad1, $cad2) {
@@ -16,7 +15,7 @@ class cadena{
         $indexX = 0;
         $indexY = 0;
         
-        // buscar indices de las letras iguales 
+        
         for ($i=0; $i < count($cad1); $i++) { 
             for ($j=0; $j < count($cad2); $j++) { 
                 if ($cad1[$i] == $cad2[$j]) {
@@ -25,8 +24,7 @@ class cadena{
                 }
             }
         }
-        
-        // imprimir tabla del cruce con ambas palabras
+
         echo "<table border='1' style='border-collapse: collapse;'>";
         for ($i=0; $i < count($cad1); $i++){
             echo "<tr>";
@@ -50,6 +48,5 @@ class cadena{
 $cadena = new cadena();
 
 $cadena->cruzar($cadena->palabra1, $cadena->palabra2);
-
 
 ?>
