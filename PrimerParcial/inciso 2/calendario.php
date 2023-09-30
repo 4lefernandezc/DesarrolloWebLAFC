@@ -82,7 +82,7 @@
                         for ($k=$j; $k<6; $k++){
                             echo "<td></td>";
                         }
-                        break ; 
+                        break 2; 
                     }
                 }else{
                     echo "<td></td>";
