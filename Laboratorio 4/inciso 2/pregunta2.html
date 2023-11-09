@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 2</title>
+</head>
+<body>
+    <h1>Pregunta 2</h1>
+    <div class="contenedor">
+        <div class="botones">
+            <input type="number" placeholder="pixeles" id="valor">
+            <button id="agrandar">Agrandar</button>
+            <button id="reducir">Reducir</button>
+        </div>
+        <img src="img/logo.png" alt="logo">
+    </div>
+
+    <script>
+        const img = document.querySelector('img');
+        const agrandar = document.getElementById('agrandar');
+        const reducir = document.getElementById('reducir');
+        const valor = document.getElementById('valor');
+
+        agrandar.addEventListener('click', () => {
+            img.style.width = `${img.width + parseInt(valor.value)}px`;
+        });
+
+        reducir.addEventListener('click', () => {
+            img.style.width = `${img.width - parseInt(valor.value)}px`;
+        });
+    </script>
+
+
+    <style>
+        .contenedor{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        img{
+            width: 400px;
+        }
+    </style>
+
+</body>
+</html>

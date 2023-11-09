@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pregunta 3</title>
+  </head>
+  <body>
+    <h1>Lista de Compras</h1>
+    <div class="contenedor">
+      <div class="inputs">
+        <input type="text" placeholder="producto" id="producto" />
+        <button id="agregar">Añadir</button>
+      </div>
+      <div id="lista"></div>
+    </div>
+
+    <script>
+      const lista = document.getElementById("lista");
+      const agregar = document.getElementById("agregar");
+      const producto = document.getElementById("producto");
+
+      agregar.addEventListener("click", () => {
+        if (producto.value.includes("de")) {
+          // pintarlo de amarillo
+          lista.innerHTML += `
+                <li style="background-color: yellow">${producto.value}</li>
+        `;
+        } else {
+          lista.innerHTML += `
+                <li>${producto.value}</li>
+        `;
+        }
+
+        producto.value = "";
+      });
+    </script>
+
+    <style>
+      .contenedor {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+      }
+
+      .inputs {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+      }
+
+      li{
+        margin-top: 5px;
+        width: fit-content;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 4</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="contenedor">
+        <button id="login">Login</button>
+    </div>
+
+    <div id="logincontenerdor">
+        
+    </div>
+
+    <script>
+        const login = document.getElementById('login');
+        const logincontenedor = document.getElementById('logincontenerdor');
+        login.addEventListener('click', () => {
+            fetch('login.html')
+            .then(res => res.text())
+            .then(html => logincontenedor.innerHTML = html)
+        })
+        
+    </script>
+</body>
+</html>

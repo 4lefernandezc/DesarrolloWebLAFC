@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 1</title>
+</head>
+<body>
+
+    <button id="mostrar">Mostrar</button>
+
+    <div id="lista"></div>
+    
+    <script>
+        // llamar al json en lista.php con fetch y mostrarlo en una tabla en el div lista
+        const lista = document.getElementById('lista');
+        const boton = document.getElementById('mostrar');
+
+        boton.addEventListener('click', async () => {
+            await fetch('lista.php')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    let pares = 0;
+                    lista.innerHTML = `
+                        <table>
+                            <tr class="titulo">
+                                <td>Nro</td>
+                                <td>Nombre Y Apellido</td>
+                                <td>Edad</td>
+                                <td>Materia</td>
+                                <td>Nota</td>
+                            </tr>
+                        </table>
+                    `;
+                    const tabla = document.querySelector('table');
+                    for (let elemento of data) {
+                        tabla.innerHTML += `
+                            <tr>
+                                <td>${elemento.Nro}</td>
+                                <td>${elemento.ApellidosNombres}</td>
+                                <td>${elemento.Edad}</td>
+                                <td>${elemento.Materia}</td>
+                                <td>${elemento.Nota}</td>
+                            </tr>
+                        `;
+                        if (elemento.Nro % 2 == 0) {
+                            tabla.rows[elemento.Nro].style.backgroundColor = 'rgb(183, 179, 179)';
+                        }
+                    }
+                })
+        });
+    </script>
+
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-top: 10px;
+            width: 50%;
+        }
+        td {
+            border: 1px solid rgb(183, 179, 179);
+            padding: 5px;
+        }
+        .titulo {
+            background-color:  rgb(123, 125, 168);
+        }
+    </style>
+
+</body>
+</html>
