@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Segundo Parcial</title>
+</head>
+<body>
+    <!-- usando ajax -->
+    <main>
+        <div class="contenedor">
+            <div class="main">
+                <div id="principal">
+                    <div class="select"></div>
+                    <div class="img"></div>
+                </div>
+                <div id="menu">
+
+                </div>
+            </div>
+            <div class="footer">
+                <button onclick="cargarMenu()">Menú</button>
+                <div id="mensaje">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var principal = document.getElementById('principal');
+        var menu = document.getElementById('menu');
+        var mensaje = document.getElementById('mensaje');
+        var boton = document.querySelector('button');
+        var libros;
+        var imagenes;
+
+
+        document.addEventListener('DOMContentLoaded', function(){
+            let ajax = new XMLHttpRequest();
+            ajax.open('GET', 'botones.html', true);
+            ajax.onreadystatechange = function(){
+                menu.innerHTML = ajax.responseText;
+            }
+            ajax.send();
+            mensaje.innerHTML = 'Nombre: Fernandez Cabrera Luigi Alejandro CU: 35-4987';
+        });
+
+
+        function cargarMenu(){
+            let ajax = new XMLHttpRequest();
+            ajax.open('GET', 'botones.html', true);
+            ajax.onreadystatechange = function(){
+                menu.innerHTML = ajax.responseText;
+            }
+            ajax.send();
+            mensaje.innerHTML = 'Nombre: Fernandez Cabrera Luigi Alejandro CU: 35-4987';
+            principal.innerHTML = '';
+        }
+
+        async function cargarGaleria(){
+            imagenes = await fetch('../inciso2/galeria.php')
+                .then(res => res.json())
+                .then(data => {
+                    return data;
+                })
+            
+            menu.innerHTML = '<div class="menuImagen" id="menuImagenCont"></div>';
+            let i = 0;
+            let menuImagenCont = document.getElementById('menuImagenCont');
+            imagenes.map(imagen => {
+                menuImagenCont.innerHTML += "<button class='btnImagen' onclick='cargarImagen("+i+")'><img src='../images/"+imagen+"'></button>"
+                i++;
+            })
+
+            menu.innerHTML +=  `
+            <style>
+
+            .menuImagen{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: white;
+                padding: 10px;
+            }
+                .btnImagen img, .btnImagen{
+                border: none;
+                background: none;
+                cursor: pointer;
+                width: 50px;
+                height: 75px;
+                border: lime;
+            }
+
+
+            .menuImagen button{
+                margin: 10px;
+                transition: 0.2s;
+            }
+
+            .menuImagen button:hover{
+                transform: scale(1.2);
+            }
+            </style>
+            `;
+
+            menu.style.backgroundColor = 'white';
+        }
+
+        async function cargarImagen(i){
+            imagenes = await fetch('../inciso2/galeria.php')
+                .then(res => res.json())
+                .then(data => {
+                    return data;
+                })
+            principal.innerHTML = "<img src='../images/"+imagenes[i]+"' class='imagenPrincipal'>";
+            mensaje.innerHTML = imagenes[i];
+        }
+        
+        async function llamarDatos(){
+            libros = await fetch('../inciso5/datos.php')
+                .then(res => res.json())
+                .then(data => {
+                    return data;
+                })
+
+            principal.innerHTML = '<div class="libros" id="libros"></div>';
+            let librosCont = document.getElementById('libros');
+
+            // crea un select con los titulos 
+            librosCont.innerHTML = '<select id="selectLibros" onchange="mostrarLibro()"></select>';
+            let selectLibros = document.getElementById('selectLibros');
+            for (let i = 0; i < libros.length; i++) {
+                selectLibros.innerHTML += '<option value="'+i+'">'+libros[i].titulo+'</option>';
+            }
+        }
+
+        function mostrarLibro(){
+            let libroseleccionado = document.getElementById('selectLibros').value;
+            principal.innerHTML += "<img src='../images/"+libros[libroseleccionado].imagen+"' class='imagenPrincipal'>";
+            mensaje.innerHTML = libros[libroseleccionado].titulo
+        }
+
+    </script>
+</body>
+</html>
