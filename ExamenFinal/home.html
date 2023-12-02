@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="principal">
+      <div class="arriba">
+        <div class="izquierda">
+          <div style="width: 100%; height: 20%">
+            <img src="img\logo.jpg" alt="logo" height="70%" width="60%" />
+          </div>
+
+          <div id="sub-menu">
+            <div
+              class="botonsubmenu"
+              style="background-color: orange; color: white"
+            >
+              Opciones
+            </div>
+          </div>
+        </div>
+
+        <div class="derecha">
+          <div class="menu">
+            <div class="botones">
+              <a class="botonmenu" href="Pregunta 1/login.html"> Pregunta 1 </a>
+              |
+              <a class="botonmenu" href="Pregunta 2/pregunta3.php">
+                Pregunta 2
+              </a>
+              |
+              <a class="botonmenu" id="pregunta3"> Pregunta 3 </a>
+              |
+              <a class="botonmenu"> Pregunta 4 </a>
+              |
+              <a class="botonmenu"> Pregunta 5 </a>
+            </div>
+          </div>
+
+          <div class="titulo" id="titulo">Pregunta 1</div>
+
+          <div id="contenido">
+            <div class="card">
+              <div class="header-card">
+                <div class="fontZise1 violeta">SIS 256 Programacion Web</div>
+                <div class="fontZise2 violeta">
+                  Examen Final-02-12-2023 7:00 am
+                </div>
+              </div>
+              <img
+                src=""
+                alt="imagen del estudiante"
+                class="superpuesta"
+                width="90px"
+                height="90px"
+              />
+              <div class="content-card">
+                <div class="fontZise1 grey-down">
+                  Fernandez Cabrera Luigi Alejandro
+                </div>
+                <div class="fontZise2 grey-down">
+                  Carrera: Ingieneria de sistemas
+                </div>
+                <div class="fontZise3 grey-down enlace">
+                  Repositorio Examen:<a
+                    href="https://github.com/4lefernandezc/DesarrolloWebLAFC/tree/main/ExamenFinal"
+                    class="grey-down"
+                    >Examen Final</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="abajo">
+        <div class="pie">Sucre - Semestre 2-2023</div>
+      </div>
+    </div>
+
+    <script>
+      var pregunta3 = document.getElementById("pregunta3");
+      pregunta3.addEventListener("click", function () {
+        let submenu = document.getElementById("sub-menu");
+        submenu.innerHTML += `<div class="opcionesH"><button class="btnhorarios">SIS256</button>
+            <button class="btnhorarios">SIS258</button>
+            <button class="btnhorarios">SIS406</button>
+            </div>
+        `;
+        var btnhorarios = document.getElementsByClassName("btnhorarios");
+        for (let i = 0; i < btnhorarios.length; i++) {
+          btnhorarios[i].addEventListener("click", async function () {
+            var ajax = new XMLHttpRequest();
+            await ajax.open(
+              "GET",
+              "Pregunta 3/horarios.php?mat=" + btnhorarios[i].innerHTML,
+              true
+            );
+            ajax.onreadystatechange = function () {
+              if (ajax.readyState == 4 && ajax.status == 200) {
+                var respuesta = JSON.parse(ajax.responseText);
+                console.log(respuesta);
+                let dias = [
+                  "Lunes",
+                  "Martes",
+                  "Miercoles",
+                  "Jueves",
+                  "Viernes",
+                ];
+                var tabla = `<table class="tabla">
+                            <tr>
+                                <th>Hora</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miercoles</th>
+                                <th>Jueves</th>
+                                <th>Viernes</th>
+                            </tr>
+                        `;
+                var hora = 8;
+                for (let i = 0; i < 11; i++) {
+                  tabla += `<tr>
+                                <td>${hora}:00 - ${hora + 1}:00</td>
+                            `;
+                  for (let j = 0; j < 5; j++) {
+                    var encontrado = false;
+                    for (let k = 0; k < respuesta.length; k++) {
+                      if (
+                        respuesta[k].dia == dias[j] &&
+                        respuesta[k].hora == hora
+                      ) {
+                        tabla += `<td class="pintado">${respuesta[k].hora}</td>`;
+                        encontrado = true;
+                        break;
+                      }
+                    }
+                    if (!encontrado) {
+                      tabla += `<td></td>`;
+                    }
+                  }
+                  tabla += `</tr>`;
+                  hora++;
+                }
+                tabla += `</table>`;
+                document.getElementById("contenido").innerHTML = tabla;
+              }
+            };
+            ajax.send();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

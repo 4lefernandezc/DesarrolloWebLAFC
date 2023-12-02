@@ -62,7 +62,7 @@
 
 }
 
-.sub-menu{
+#sub-menu{
 
     margin: 0 auto;
     border: 1px solid black;
@@ -71,7 +71,7 @@
 
 }
 
-.contenido{
+#contenido{
     width: 750px;
     border: 1px solid black;
     height: 450px;
@@ -225,13 +225,6 @@
     flex-direction: row;
     text-decoration: none;
 }
-.enlace a:visited{
-    padding: .3em;
-    text-decoration: none;
-    color: black;
-    background: white;
-    border: 1px solid #000000;
-}
 
 .superpuesta {
     border-radius: 50%;
@@ -241,4 +234,12 @@
     z-index: 1; 
     border: 5px solid white;
 
+}
+
+.opcionesH{
+    display: flex;
+    flex-direction: column;
+}
+.pintado{
+    background-color: yellow;
 }

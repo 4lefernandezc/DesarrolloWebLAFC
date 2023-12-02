@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <form action="autenticar.php" method="post" id="formLogin">
+        <label for="usuario">Username</label>
+        <input type="text" name="usuario" id="usuario" required>
+        <br>
+        <label for="clave">Password</label>
+        <input type="password" name="clave" id="clave" required readonly>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+
+    <div class="teclado">
+        <table>
+            <tr>
+                <td onclick="agregar('1')">1</td>
+                <td onclick="agregar('2')">2</td>
+                <td onclick="agregar('3')">3</td>
+            </tr>
+            <tr>
+                <td onclick="agregar('4')">4</td>
+                <td onclick="agregar('5')">5</td>
+                <td onclick="agregar('6')">6</td>
+            </tr>
+            <tr>
+                <td onclick="agregar('7')">7</td>
+                <td onclick="agregar('8')">8</td>
+                <td onclick="agregar('9')">9</td>
+            </tr>
+            <tr>
+                <td onclick="agregar('A')">A</td>
+                <td onclick="agregar('B')">B</td>
+                <td onclick="agregar('C')">C</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+
+<script>
+    function agregar(valor){
+        var clave = document.getElementById("clave");
+        clave.value += valor;
+    }
+</script>
+
+</html>
