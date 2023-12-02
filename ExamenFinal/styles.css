@@ -1,0 +1,244 @@
+
+.principal{
+    display: flex;
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 900px;
+    height: 600px;
+    flex-direction: column;
+
+}
+
+
+.arriba{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+}
+
+.abajo{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
+
+.izquierda{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.derecha{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.menu{
+    width: 750px;
+    border: 1px solid black;
+    height: 50px;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.titulo{
+    width: 750px;
+    border: 1px solid black;
+    height: 50px;
+    background-color:blanchedalmond;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sub-menu{
+
+    margin: 0 auto;
+    border: 1px solid black;
+    height: 80%;
+    width: 100%;
+
+}
+
+.contenido{
+    width: 750px;
+    border: 1px solid black;
+    height: 450px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pie{
+    width: 100%;
+    border: 1px solid black;
+    height: 100%;
+    background-color: burlywood;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-around;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.botonmenu{
+    border: 1px solid black;
+    background-color: white;
+
+    height: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.botonsubmenu{
+    border: 1px solid orange;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 10%;
+
+}
+
+.perfil{
+    border: 1px solid black;
+    width: 400px;
+    height: 300px;
+
+}
+
+.perfil-superior{
+    background-color: lightblue;
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content:center;
+    align-items: left;
+    flex-direction: column;
+
+}
+
+.perfil-inferior{
+
+    width: 100%;
+    height: 70%;
+
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    background-color: aqua;
+    border-radius: 10px;
+
+    background-color: #fff;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.3);
+}
+.header-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color:#d5daf9;
+    height: 40%;
+
+    padding-left: 15%;
+    padding-right: 15%;
+
+
+     border-top-right-radius: 10px;
+     border-top-left-radius: 10px;
+
+     gap: 30px;
+}
+.content-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color:#ffffff;
+    height: 60%;
+
+    padding-left: 15%;
+    padding-right: 15%;
+
+
+     border-bottom-right-radius: 10px;
+     border-bottom-left-radius: 10px;
+     gap: 30px;
+}
+.fontZise1{
+    font-size: 20px;
+}
+.fontZise2{
+    font-size: 20px;
+}
+.fontZise3{
+    font-size: 15px;
+}
+
+
+.violeta{
+    color: #647de7;
+}
+.grey-down{
+    color:#8890a2;
+}
+.enlace{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+.enlace a:visited{
+    padding: .3em;
+    text-decoration: none;
+    color: black;
+    background: white;
+    border: 1px solid #000000;
+}
+
+.superpuesta {
+    border-radius: 50%;
+    position: absolute;
+
+    transform: translate(30%, 110%);
+    z-index: 1; 
+    border: 5px solid white;
+
+}
